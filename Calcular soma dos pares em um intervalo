@@ -1,0 +1,30 @@
+/*
+/*==========================================================================================|
+*     LAB07 – Calcular a soma dos números pares entre 0 e 100 e mostrar o resultado na tela. 
+*     Desenvolvido por: Felipe Freitas 15.05.2020                                           
+============================================================================================*/
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+
+int main()
+
+{
+	int valor = 2, soma = 0;
+	setlocale(LC_ALL, "Portuguese");	
+	
+	printf("===========================\n| Números Pares de 0 a 100|\n===========================\n\n");
+	
+	while (valor<=100)
+	{
+		printf ("%i\t",valor);
+		soma = soma + valor;
+		valor = valor + 2;		
+	}
+		
+	printf("\n\nA soma dos números pares é: %i", soma);		
+
+	getch ();
+	return 0;
+}
+
