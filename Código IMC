@@ -1,0 +1,44 @@
+/*
+Desenvolvido por: Felipe Freitas
+*/
+#include <stdio.h>
+#include <conio.h>
+#include <math.h>
+#include <locale.h>
+
+int main()
+
+{
+
+float altura, peso, imc;
+	
+	setlocale (LC_ALL, "portuguese");
+	
+	printf ("====================\n|Calculadora de IMC|\n====================\n\n");
+	
+	printf ("Informe o peso:\n");
+		scanf ("%f", &peso);  
+	printf ("Informe a altura:\n");
+		scanf ("%f", &altura);  
+		
+   	imc = peso/pow(altura,2);	 
+    	
+	if (peso <= 0 || altura <= 0)
+		printf("Os valores informados são inválidos.");
+		
+	else
+{
+	if (imc <= 18.5)
+		printf ("O IMC é: %.f \n\n Considerado: Magro.", imc);
+
+ 	if (imc > 18.5 && imc <=24.9)
+		printf("O IMC é: %.f \n\n Considerado: Saudável.", imc);
+		 
+	else if (imc >= 25) 
+		printf("O IMC é: %.f \n\n Considerado: Obeso.", imc);
+}
+		
+	getch ();
+return 0;
+
+}
