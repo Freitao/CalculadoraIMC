@@ -1,0 +1,75 @@
+//Feito por: Felipe Medeiros Alves de Freitas - RA: 2020660097
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+    
+
+
+void calcula_nota(float *notas, float *medianotas, float *maiornota)
+{
+	int i, j, aux;	
+	*medianotas=0;
+	*maiornota=0;
+	
+	for(i=0; i<4; i++)
+	{
+		*medianotas=notas[i]+*medianotas;
+		if(notas[i]>*maiornota){
+        	*maiornota=notas[i];
+		}
+	}
+	
+	*medianotas=*medianotas/4;	
+	
+	//	ORDENAÇÃO 
+	for (i = 0; i < 3; i++)
+    {
+        for (j = i+1; j < 4; j++)
+        {
+        	if (notas[j] < notas[i])
+            {
+                aux = notas[i];
+                notas[i] = notas[j];
+                notas[j] = aux;
+            }             
+        }
+    } 
+}
+    
+int main()
+{
+    float notas[4];
+    float medianotas, maiornota;
+    int i;
+      
+    // entrada das notas
+    for (i = 0; i < 4; i++)
+    {
+    	printf("Digite o valor da nota[%i]: ",i+1);
+        scanf("%f", &notas[i]);
+    }    
+    //chamada da função
+    calcula_nota(notas, &medianotas, &maiornota);
+          
+    printf ("\nMedia = %.1f\n", medianotas );
+      
+    printf("\nMaior Nota = %.1f\n", maiornota);
+     
+ 	printf("\nNotas Ordenadas: ");     
+     
+    for (i = 0; i < 4; i++)
+    {
+        printf(" %.2f", notas[i]);
+	}
+	printf("\n");
+    if(medianotas >= 7)
+	{
+    	printf("\n\tALUNO APROVADO!\n");
+	}
+	else
+	{
+	  	printf("\n\tALUNO REPROVADO!\n");
+	}    
+	getch ();
+    return 0;
+}
